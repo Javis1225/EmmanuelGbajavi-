@@ -1,0 +1,3212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Days Google AdSense: Beginner to Pro</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '645305658614276');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=645305658614276&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            --success-gradient: linear-gradient(135deg, #00b894, #00cec9);
+            --dark-bg: #0f0f23;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --border-radius: 16px;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 20px 64px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Responsive spacing variables */
+            --section-padding: clamp(60px, 8vh, 120px);
+            --container-padding: clamp(20px, 5vw, 40px);
+            --card-padding: clamp(20px, 4vw, 40px);
+            --gap-small: clamp(16px, 3vw, 24px);
+            --gap-medium: clamp(24px, 4vw, 32px);
+            --gap-large: clamp(32px, 6vw, 60px);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--dark-bg);
+            overflow-x: hidden;
+            font-size: clamp(14px, 1.6vw, 16px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            width: 100%;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            display: block;
+            pointer-events: none;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float-up 8s infinite linear;
+        }
+        
+        @keyframes float-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0vh) scale(0);
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            background: transparent;
+            padding: var(--section-padding) 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--card-padding);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideInUp 1s ease-out;
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: var(--gap-small);
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            margin-bottom: var(--gap-medium);
+            font-weight: 500;
+            opacity: 0.95;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--gap-medium);
+            margin: var(--gap-large) 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--gap-small);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            line-height: 1.1;
+        }
+        
+        .stat-label {
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--accent-gradient);
+            color: white;
+            padding: clamp(14px, 3vw, 20px) clamp(28px, 6vw, 48px);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            min-width: 200px;
+            justify-content: center;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 48px rgba(255, 107, 107, 0.6);
+        }
+        
+        /* Glass cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: var(--card-padding);
+            transition: var(--transition);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--gap-large);
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: var(--gap-small);
+            background: linear-gradient(135deg, #ff6b6b, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: var(--gap-medium);
+        }
+        
+        .problem-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: var(--card-padding);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+        
+        .problem-icon {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: var(--gap-small);
+            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.5));
+        }
+        
+        .problem-card h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ff6b6b;
+        }
+        
+        .problem-card p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.6;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            padding: var(--section-padding) 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: var(--gap-medium);
+            margin-top: var(--gap-large);
+        }
+        
+        .feature-card {
+            background: white;
+            padding: var(--card-padding);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .feature-card h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: var(--section-padding) 0;
+            background: #f8fafc;
+            text-align: center;
+        }
+        
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: var(--gap-medium);
+            margin: var(--gap-large) 0;
+        }
+        
+        .proof-stat {
+            padding: var(--card-padding);
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        
+        .proof-stat:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .proof-number {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+        
+        .proof-label {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        /* Story Sections */
+        .story-section {
+            padding: var(--section-padding) 0;
+        }
+        
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .story-card {
+            background: #f8fafc;
+            padding: var(--card-padding);
+            border-radius: 20px;
+            margin-bottom: var(--gap-large);
+            text-align: left;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .story-card p {
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: var(--gap-small);
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--gap-large);
+            margin-top: var(--gap-large);
+        }
+        
+        .before-after > div {
+            text-align: center;
+            padding: var(--gap-medium);
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+        
+        .before-after .before {
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid rgba(231, 76, 60, 0.2);
+        }
+        
+        .before-after .after {
+            background: rgba(0, 184, 148, 0.1);
+            border: 2px solid rgba(0, 184, 148, 0.2);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: var(--section-padding) 0;
+            background: var(--dark-bg);
+            color: white;
+            position: relative;
+        }
+        
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            margin-top: var(--gap-large);
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            flex: 0 0 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 var(--gap-medium);
+        }
+        
+        .testimonial-content {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-style: italic;
+            margin-bottom: var(--gap-medium);
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .testimonial img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: var(--gap-small);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .author-avatar {
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+        }
+        
+        .author-info p {
+            opacity: 0.7;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: var(--gap-medium);
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .dot.active {
+            background: #ffd700;
+            transform: scale(1.2);
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            padding: var(--section-padding) 0;
+            background: white;
+            position: relative;
+        }
+        
+        .pricing-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: var(--card-padding);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            border-radius: 24px;
+            padding: 2px;
+            z-index: -1;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--gap-medium);
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 107, 107, 0.8);
+            }
+        }
+        
+        .price-display {
+            margin-bottom: var(--gap-medium);
+        }
+        
+        .original-price {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            text-decoration: line-through;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        
+        .current-price {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .savings-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            font-weight: 600;
+            margin-top: 16px;
+        }
+        
+        .features-list {
+            text-align: left;
+            margin-bottom: var(--gap-medium);
+            list-style: none;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            line-height: 1.5;
+        }
+        
+        .features-list .check {
+            background: #10b981;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* Countdown Timer - Enhanced */
+        .countdown-section {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: var(--section-padding) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.15"/><circle cx="20" cy="80" r="0.8" fill="white" opacity="0.08"/><circle cx="80" cy="20" r="0.6" fill="white" opacity="0.12"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float-pattern 20s linear infinite;
+        }
+        
+        @keyframes float-pattern {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(-50px) translateY(-30px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
+        
+        .countdown-title {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .countdown-subtitle {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            opacity: 0.95;
+            margin-bottom: var(--gap-medium);
+            font-weight: 500;
+        }
+
+        .countdown-timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(12px, 3vw, 24px);
+            margin: var(--gap-medium) auto;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: clamp(16px, 4vw, 30px) clamp(12px, 3vw, 20px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            min-width: 0; /* Allow shrinking */
+        }
+        
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            z-index: -1;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-number {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-weight: 900;
+            display: block;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            font-family: 'Inter', monospace;
+            position: relative;
+            line-height: 1;
+        }
+        
+        .countdown-number.urgent {
+            animation: pulse-urgent 1s infinite;
+            color: #ffd700;
+        }
+        
+        @keyframes pulse-urgent {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 0 0 40px rgba(255, 215, 0, 1);
+            }
+        }
+
+        .countdown-label {
+            font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+        
+        .countdown-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+            border-radius: 0 0 20px 20px;
+            transition: width 1s ease;
+        }
+        
+        .countdown-warning {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin: 30px auto 0;
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .countdown-warning.expired {
+            background: rgba(231, 76, 60, 0.2);
+            border-color: rgba(231, 76, 60, 0.4);
+        }
+        
+        .countdown-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: clamp(12px, 3vw, 20px);
+            margin-top: var(--gap-medium);
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .countdown-benefit {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+        }
+        
+        .countdown-benefit-icon {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            flex-shrink: 0;
+        }
+        
+        /* Bonus Section */
+        .bonus-section {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+        }
+        
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: var(--gap-medium);
+            margin-top: var(--gap-large);
+        }
+        
+        .bonus-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: var(--card-padding);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+        
+        .bonus-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .bonus-value {
+            display: inline-block;
+            background: #ffd700;
+            color: #2d3436;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            margin-bottom: 16px;
+        }
+        
+        .bonus-item h3 {
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        
+        .bonus-item p {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            background: var(--success-gradient);
+            color: white;
+            padding: var(--section-padding) 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background: white;
+            color: #00b894;
+            padding: clamp(16px, 4vw, 24px) clamp(24px, 6vw, 40px);
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: var(--gap-medium);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .guarantee h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+        
+        .guarantee p {
+            font-size: clamp(1rem, 2.2vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .guarantee p:last-child {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Urgency Bar */
+        .urgency-bar {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            color: white;
+            padding: clamp(12px, 2vw, 16px);
+            text-align: center;
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: pulse-urgency 3s infinite;
+            font-size: clamp(0.8rem, 1.8vw, 1rem);
+        }
+        
+        @keyframes pulse-urgency {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .urgency-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+            width: 30%;
+        }
+        
+        @keyframes shine {
+            0% { left: -30%; }
+            100% { left: 100%; }
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            padding: var(--section-padding) 0 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+        
+        .footer-content h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 20px;
+        }
+        
+        .footer-content p {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            margin-bottom: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(20px, 5vw, 30px);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-container {
+            background: white;
+            border-radius: 20px;
+            max-width: min(500px, 90vw);
+            width: 100%;
+            position: relative;
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .popup-overlay.active .popup-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #666;
+            cursor: pointer;
+            z-index: 1;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .popup-close:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .popup-content {
+            padding: clamp(25px, 6vw, 40px) clamp(20px, 5vw, 30px) clamp(20px, 5vw, 30px);
+            text-align: center;
+        }
+
+        .popup-header {
+            margin-bottom: 30px;
+        }
+
+        .popup-header h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ff6b6b, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .popup-header p {
+            color: #666;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.5;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .popup-benefits {
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+            color: #333;
+            font-weight: 500;
+        }
+
+        .benefit-icon {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .popup-form {
+            margin: 30px 0 20px;
+        }
+
+        .popup-form input[type="email"] {
+            width: 100%;
+            padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 20px);
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: 15px;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+
+        .popup-form input[type="email"]:focus {
+            border-color: #667eea;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .popup-form button {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: clamp(12px, 3vw, 16px) clamp(20px, 4vw, 24px);
+            border-radius: 12px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .popup-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .popup-disclaimer {
+            font-size: clamp(0.75rem, 1.5vw, 0.8rem);
+            color: #888;
+            margin: 15px 0;
+        }
+
+        .popup-social-proof {
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #e8ebff;
+        }
+
+        .popup-social-proof p {
+            font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+            color: #555;
+            margin: 0;
+        }
+
+        .popup-social-proof strong {
+            color: #667eea;
+        }
+        
+        /* Modal Styles for Privacy Policy and Terms */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background: white;
+            border-radius: 20px;
+            max-width: min(800px, 90vw);
+            width: 100%;
+            max-height: 85vh;
+            position: relative;
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: clamp(20px, 4vw, 30px) clamp(25px, 5vw, 40px) clamp(15px, 3vw, 20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .modal-header h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+            margin: 0;
+            flex: 1;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-content {
+            padding: clamp(20px, 4vw, 30px) clamp(25px, 5vw, 40px) clamp(30px, 6vw, 40px);
+            overflow-y: auto;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .modal-content h3 {
+            color: var(--text-primary);
+            font-size: clamp(1.1rem, 2.2vw, 1.2rem);
+            font-weight: 700;
+            margin: clamp(20px, 4vw, 25px) 0 clamp(12px, 2.5vw, 15px);
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .modal-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        .modal-content ul {
+            margin: 15px 0 20px clamp(15px, 3vw, 20px);
+            color: var(--text-secondary);
+        }
+
+        .modal-content ul li {
+            margin-bottom: 8px;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        .modal-content a {
+            color: #667eea;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .modal-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Additional enhancements */
+        .highlight {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: clamp(16px, 3vw, 24px);
+            right: clamp(16px, 3vw, 24px);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: var(--transition);
+        }
+        
+        .floating-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-cta .cta-button {
+            padding: clamp(12px, 2.5vw, 16px) clamp(24px, 5vw, 32px);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            border-radius: 50px;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.6);
+            min-width: auto;
+        }
+        
+        .risk-reversal {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            text-align: center;
+        }
+        
+        .objection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: var(--gap-medium);
+            margin-top: var(--gap-large);
+        }
+        
+        .objection-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: var(--card-padding);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .objection-card h3 {
+            color: #ff6b6b;
+            margin-bottom: 16px;
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+        }
+        
+        .objection-answer {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffd700;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+        }
+        
+        .objection-card p {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            line-height: 1.6;
+        }
+
+        /* ENHANCED RESPONSIVE DESIGN - MOBILE FIRST APPROACH */
+        
+        /* Base Mobile Styles (320px+) */
+        @media (max-width: 479px) {
+            :root {
+                --section-padding: clamp(40px, 8vh, 80px);
+                --container-padding: 16px;
+                --card-padding: clamp(16px, 4vw, 24px);
+                --gap-small: 12px;
+                --gap-medium: 16px;
+                --gap-large: 24px;
+            }
+            
+            /* Hero optimizations */
+            .hero {
+                min-height: 100svh; /* Use svh for better mobile support */
+                padding: 40px 0 20px;
+            }
+            
+            .hero-content {
+                padding: 24px 20px;
+                border-radius: 16px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 280px;
+            }
+            
+            .stat-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 16px;
+                text-align: left;
+            }
+            
+            .stat-label {
+                text-align: right;
+                margin-top: 0;
+            }
+            
+            /* Countdown timer mobile optimization */
+            .countdown-timer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                max-width: 300px;
+            }
+            
+            .countdown-item {
+                padding: 12px 8px;
+                border-radius: 12px;
+            }
+            
+            .countdown-benefits {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .countdown-benefit {
+                padding: 12px 16px;
+                font-size: 0.85rem;
+                text-align: center;
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            /* Grid layouts mobile optimization */
+            .problem-grid,
+            .features-grid,
+            .bonus-grid,
+            .objection-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .proof-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            /* Story sections mobile optimization */
+            .before-after {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            /* Testimonial mobile optimization */
+            .testimonial {
+                padding: 0 16px;
+            }
+            
+            .testimonial img {
+                max-width: 240px;
+                margin: 0 auto var(--gap-small);
+                display: block;
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            
+            /* Pricing mobile optimization */
+            .features-list li {
+                font-size: 0.9rem;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .features-list .check {
+                margin-top: 3px;
+                width: 20px;
+                height: 20px;
+                font-size: 0.7rem;
+            }
+            
+            /* Footer mobile optimization */
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            
+            /* Urgency bar mobile */
+            .urgency-bar {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+                line-height: 1.3;
+            }
+        }
+        
+        /* Large Mobile (480px - 767px) */
+        @media (min-width: 480px) and (max-width: 767px) {
+            :root {
+                --section-padding: clamp(50px, 8vh, 100px);
+                --container-padding: 20px;
+                --card-padding: clamp(20px, 4vw, 32px);
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 500px;
+            }
+            
+            .stat-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 16px;
+            }
+            
+            .countdown-timer {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 480px;
+            }
+            
+            .countdown-benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .proof-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            :root {
+                --section-padding: clamp(60px, 10vh, 120px);
+                --container-padding: 30px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 600px;
+            }
+            
+            .problem-grid,
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .bonus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .proof-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .objection-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .before-after {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+            }
+        }
+        
+        /* Desktop (1024px+) */
+        @media (min-width: 1024px) {
+            .problem-grid,
+            .features-grid,
+            .objection-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .bonus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .before-after {
+                grid-template-columns: repeat(3, 1fr);
+                align-items: center;
+            }
+            
+            .before-after > div:nth-child(2) {
+                font-size: 2rem;
+                color: var(--text-secondary);
+            }
+        }
+        
+        /* Ultra-wide screens (1400px+) */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+                padding: 0 60px;
+            }
+            
+            .problem-grid,
+            .features-grid,
+            .objection-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .bonus-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Landscape mobile optimization */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 20px 0;
+            }
+            
+            .hero-content {
+                padding: 20px 24px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                margin: 20px 0;
+                gap: 16px;
+            }
+            
+            .section-title {
+                font-size: clamp(1.5rem, 4vw, 2.5rem);
+            }
+            
+            .countdown-timer {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+        }
+        
+        /* High DPI displays optimization */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .hero-content,
+            .glass-card,
+            .problem-card,
+            .bonus-item {
+                backdrop-filter: blur(25px);
+            }
+            
+            .popup-container,
+            .modal-container {
+                backdrop-filter: blur(20px);
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .popup-overlay,
+            .floating-cta,
+            .urgency-bar,
+            .animated-bg,
+            .particles {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .hero,
+            .problem-section,
+            .testimonials,
+            .bonus-section,
+            .guarantee,
+            .countdown-section,
+            .risk-reversal {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .cta-button {
+                border: 2px solid black !important;
+                background: white !important;
+                color: black !important;
+            }
+        }
+        
+        /* Reduced motion accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .animated-bg,
+            .particle,
+            .problem-card::before,
+            .guarantee-badge {
+                animation: none !important;
+            }
+            
+            .reveal {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+            
+            * {
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .cta-button:hover {
+                transform: none !important;
+            }
+        }
+        
+        /* Focus and accessibility improvements */
+        .cta-button:focus,
+        .popup-form button:focus,
+        .popup-form input:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        .popup-close:focus,
+        .modal-close:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 1px;
+        }
+        
+        /* Improved touch targets for mobile */
+        @media (max-width: 768px) {
+            .cta-button,
+            .popup-form button {
+                min-height: 48px;
+                min-width: 48px;
+            }
+            
+            .popup-close,
+            .modal-close {
+                min-width: 44px;
+                min-height: 44px;
+            }
+            
+            .dot {
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .dot::after {
+                content: '';
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transition: var(--transition);
+            }
+            
+            .dot.active::after {
+                background: #ffd700;
+                transform: scale(1.2);
+            }
+        }
+        
+        /* Container query support for modern browsers */
+        @supports (container-type: inline-size) {
+            .hero-content {
+                container-type: inline-size;
+            }
+            
+            @container (max-width: 600px) {
+                .hero-stats {
+                    grid-template-columns: 1fr;
+                }
+            }
+            
+            @container (min-width: 601px) {
+                .hero-stats {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .popup-container,
+            .modal-container {
+                background: #1a1a2e;
+                color: white;
+            }
+            
+            .popup-header h3 {
+                background: linear-gradient(135deg, #ff6b6b, #ffd700);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            
+            .popup-form input[type="email"] {
+                background: #2d3436;
+                border-color: #636e72;
+                color: white;
+            }
+            
+            .popup-form input[type="email"]:focus {
+                background: #2d3436;
+                border-color: #667eea;
+            }
+            
+            .modal-content {
+                color: #e0e0e0;
+            }
+            
+            .modal-content h3 {
+                color: white;
+                border-bottom-color: #636e72;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <!-- Kit.com Integration -->
+    <script async data-uid="7de5e64bae" src="https://primeaura.kit.com/7de5e64bae/index.js"></script>
+
+    <!-- Popup Form Overlay -->
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-container">
+            <button class="popup-close" onclick="closePopup()" aria-label="Close popup">&times;</button>
+            
+            <div class="popup-content">
+                <div class="popup-header">
+                    <h3>Wait! Don't Miss Out!</h3>
+                    <p>Get the FREE AdSense Approval Checklists that helped 2,847+ students get approved (even after multiple rejections)</p>
+                </div>
+                
+                <div class="popup-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Complete AdSense approval checklist</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📋</span>
+                        <span>Content requirements template</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🛡️</span>
+                        <span>Policy compliance guide</span>
+                    </div>
+                </div>
+                
+                <form class="popup-form" data-uid="7de5e64bae" data-format="inline" data-version="5">
+                    <input type="email" placeholder="Enter your best email address..." required />
+                    <button type="submit">Get FREE Approval Checklists</button>
+                </form>
+                
+                <p class="popup-disclaimer">
+                    100% Free • No Spam • Unsubscribe Anytime
+                </p>
+                
+                <div class="popup-social-proof">
+                    <p><strong>2,847+ people</strong> already subscribed this week!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Urgency Bar -->
+    <div class="urgency-bar">
+        <span>🚨 FLASH SALE ENDING: 72% OFF - Only 47 Hours Left Before Price Increases to $97! 🚨</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; display: inline-block;">
+                    WARNING: Price Doubles in 47 Hours
+                </div>
+                <h1>Turn Your Website Into a <span class="highlight">$5,000+/Month</span> AdSense ATM Machine</h1>
+                <p class="hero-subtitle">The Underground AdSense System That's Generated Over <strong>$2.3 Million</strong> for Our Students - Even Complete Beginners</p>
+                <p style="font-size: 1.1rem; margin-bottom: 32px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    This is the same proven system I used to escape my dead-end job and build a $12,000+/month passive income empire. Now it's your turn to break free from financial stress forever.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2,847+</span>
+                        <span class="stat-label">Success Stories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$2.3M+</span>
+                        <span class="stat-label">Student Earnings</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98.2%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+                
+                <a href="https://sellpass.co/p/5792_1756863116" class="cta-button" target="_blank">
+                    <span>🚀 GET INSTANT ACCESS - $27</span>
+                </a>
+                
+                <p style="margin-top: 24px; opacity: 0.8; font-size: 0.9rem;">
+                    ⏰ 60-Day Money-Back Guarantee | ✅ Instant Access | 🔥 Price Increases to $97 Soon
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Story Section -->
+    <section class="story-section" style="background: white;">
+        <div class="container">
+            <div class="story-content">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 40px; color: var(--text-primary);">
+                    From $3/Day to $12,000/Month: My AdSense Journey
+                </h2>
+                
+                <div class="story-card">
+                    <p>
+                        Three years ago, I was a struggling college student working part-time at a coffee shop, barely making ends meet. My AdSense account was earning a pathetic <strong>$3 per day</strong> from a blog I'd been running for months.
+                    </p>
+                    
+                    <p>
+                        I remember the exact moment everything changed. It was 2 AM, and I was scrolling through my AdSense dashboard, seeing yet another day of disappointing earnings. I felt like giving up. But then I discovered a small optimization technique that <strong>tripled my earnings overnight</strong>.
+                    </p>
+                    
+                    <p>
+                        That one change led to another, then another. Within 30 days, I went from $3/day to $127/day. Within 6 months, I was earning more from AdSense than my friends were making at their full-time jobs.
+                    </p>
+                    
+                    <p style="margin-bottom: 0;">
+                        Today, my AdSense empire generates <strong>over $12,000 per month</strong> across multiple sites, and I've helped 2,847+ students achieve similar results. What you're about to learn is the exact system that transformed my life.
+                    </p>
+                </div>
+                
+                <div class="before-after">
+                    <div class="before">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #e74c3c; margin-bottom: 8px;">Before</div>
+                        <div style="font-size: 1.8rem; font-weight: 600; color: var(--text-secondary);">$3/day</div>
+                        <div style="font-size: 1rem; color: var(--text-secondary);">Struggling & Frustrated</div>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--text-secondary);">→</div>
+                    <div class="after">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: #00b894; margin-bottom: 8px;">After</div>
+                        <div style="font-size: 1.8rem; font-weight: 600; color: var(--text-secondary);">$12,000+/month</div>
+                        <div style="font-size: 1rem; color: var(--text-secondary);">Financial Freedom</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Success Story -->
+    <section style="padding: var(--section-padding) 0; background: linear-gradient(135deg, #74b9ff, #0984e3); color: white;">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 60px; text-align: center;">
+                    The Moment Everything Changed for Sarah
+                </h2>
+                
+                <div class="before-after">
+                    <div>
+                        <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: #ffd700;">Month 1: The Struggle</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+                                Sarah was a single mom working two jobs, desperately trying to find a way to earn extra income online. Her blog had decent traffic, but AdSense was only bringing in $4-6 per day.
+                            </p>
+                            <div style="font-size: 2rem; font-weight: 900; color: #ff6b6b;">$150/month</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">Barely covering hosting costs</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: #ffd700;">Month 2: The Breakthrough</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+                                After implementing just the first week of our system, Sarah's earnings jumped to $47/day. By week 3, she was consistently hitting $80+ daily. The transformation was incredible.
+                            </p>
+                            <div style="font-size: 2rem; font-weight: 900; color: #00b894;">$2,847/month</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">More than her part-time job!</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 60px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: #ffd700;">The Moment That Changed Everything</h3>
+                    <p style="font-size: 1.3rem; font-style: italic; line-height: 1.8; margin-bottom: 30px;">
+                        "I remember logging into my AdSense dashboard on day 18 and seeing $127 for a single day. I actually thought it was a mistake. I refreshed the page three times. When I realized it was real, I cried. For the first time in years, I saw a path to financial freedom."
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">S</div>
+                        <div style="text-align: left;">
+                            <div style="font-weight: 600; font-size: 1.1rem;">Sarah Martinez</div>
+                            <div style="opacity: 0.8; font-size: 0.9rem;">Single Mom & Digital Marketer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Discovery Story -->
+    <section class="story-section" style="background: #f8fafc;">
+        <div class="container">
+            <div class="story-content">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 40px; color: var(--text-primary);">
+                    The $10,000 Mistake That Led to This Discovery
+                </h2>
+                
+                <div class="story-card">
+                    <p>
+                        Two years ago, I made a costly mistake that almost bankrupted my AdSense business. I was spending <strong>$500+ per day</strong> on Facebook ads, driving traffic to my sites, but my AdSense earnings couldn't keep up. I was losing money fast.
+                    </p>
+                    
+                    <p>
+                        After burning through <strong>$10,000 in just 20 days</strong>, I was forced to stop everything and figure out what was wrong. That's when I discovered the fatal flaw that 99% of AdSense publishers make...
+                    </p>
+                    
+                    <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 30px 0; border-radius: 8px;">
+                        <p style="font-size: 1.1rem; font-weight: 600; color: #856404; margin: 0;">
+                            <strong>The Discovery:</strong> Most people focus on getting more traffic, but the real money is in traffic QUALITY and ad optimization. I was getting the wrong type of visitors!
+                        </p>
+                    </div>
+                    
+                    <p>
+                        Once I fixed this fundamental error and implemented the optimization techniques I'm about to share with you, my <strong>RPM (Revenue Per Mille) increased by 847%</strong> in just 14 days.
+                    </p>
+                    
+                    <p style="margin-bottom: 0;">
+                        That painful $10,000 lesson became the foundation of this system - and now it's helped thousands of students avoid the same expensive mistakes I made.
+                    </p>
+                </div>
+                
+                <div class="before-after">
+                    <div style="text-align: center; background: white; padding: 30px; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                        <div style="font-size: 3rem; margin-bottom: 16px;">💸</div>
+                        <div style="font-size: 2rem; font-weight: 900; color: #e74c3c; margin-bottom: 8px;">$10,000</div>
+                        <div style="font-size: 1rem; color: var(--text-secondary);">Lost in 20 days</div>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 30px; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                        <div style="font-size: 3rem; margin-bottom: 16px;">🔍</div>
+                        <div style="font-size: 2rem; font-weight: 900; color: #f39c12; margin-bottom: 8px;">1 Discovery</div>
+                        <div style="font-size: 1rem; color: var(--text-secondary);">Changed everything</div>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 30px; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                        <div style="font-size: 3rem; margin-bottom: 16px;">📈</div>
+                        <div style="font-size: 2rem; font-weight: 900; color: #00b894; margin-bottom: 8px;">847%</div>
+                        <div style="font-size: 1rem; color: var(--text-secondary);">RPM increase</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: var(--text-primary);">
+                Join <span class="highlight">2,847+ Students</span> Already Earning Daily with AdSense
+            </h2>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 60px;">
+                Real people, real results, real transformation in just 30 days
+            </p>
+            
+            <div class="proof-stats reveal">
+                <div class="proof-stat">
+                    <div class="proof-number">$4,847</div>
+                    <div class="proof-label">Average Monthly Earnings</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="proof-number">18 Days</div>
+                    <div class="proof-label">Average Time to $100/Day</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="proof-number">327%</div>
+                    <div class="proof-label">Average Revenue Increase</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="proof-number">4.9★</div>
+                    <div class="proof-label">Student Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Turning Point Story -->
+    <section style="padding: var(--section-padding) 0; background: linear-gradient(135deg, #2d3436, #636e72); color: white; position: relative;">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 60px;">
+                    The Exact Moment I Realized This System Works for ANYONE
+                </h2>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); padding: 50px 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.2); margin-bottom: 60px; text-align: left;">
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 24px;">
+                        Six months ago, I received a message that completely changed how I view this system. It was from Maria, a 67-year-old grandmother from Ohio who had never earned a penny online.
+                    </p>
+                    
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 24px;">
+                        She told me: <em style="color: #ffd700;">"My grandson convinced me to try your course. I'm terrible with computers, but I need extra income for my medications. I figured I'd give it 30 days."</em>
+                    </p>
+                    
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 24px;">
+                        Three weeks later, she sent me a screenshot: <strong style="color: #00b894;">$94.17 in a single day</strong> from AdSense. A 67-year-old grandmother with zero tech experience was out-earning people half her age who had been trying for years.
+                    </p>
+                    
+                    <div style="background: rgba(255, 215, 0, 0.1); border: 1px solid #ffd700; padding: 30px; border-radius: 16px; margin: 30px 0;">
+                        <p style="font-size: 1.3rem; font-weight: 600; color: #ffd700; margin-bottom: 16px; text-align: center;">
+                            Maria's Results in 30 Days:
+                        </p>
+                        <div class="before-after">
+                            <div>
+                                <div style="font-size: 1.8rem; font-weight: 900; color: #ffd700;">$0</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">Starting point</div>
+                            </div>
+                            <div style="font-size: 1.5rem; color: #ffd700;">→</div>
+                            <div>
+                                <div style="font-size: 1.8rem; font-weight: 900; color: #ffd700;">$94.17</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">Best single day</div>
+                            </div>
+                            <div style="font-size: 1.5rem; color: #ffd700;">→</div>
+                            <div>
+                                <div style="font-size: 1.8rem; font-weight: 900; color: #ffd700;">$1,847</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">First month total</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 0;">
+                        That's when I knew this wasn't just a system for tech-savvy marketers or young entrepreneurs. <strong>This works for absolutely anyone</strong> willing to follow the step-by-step blueprint - regardless of age, experience, or technical skill.
+                    </p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 30px; color: #ffd700;">
+                        If a 67-year-old grandmother can do it...
+                    </h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9;">
+                        What's stopping you from starting your own success story today?
+                    </p>
+                    <a href="https://sellpass.co/p/5792_1756863116" class="cta-button" target="_blank">
+                        Start Your Success Story - $27
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Stop Leaving Money on the Table</h2>
+                <p class="section-subtitle">
+                    These common AdSense mistakes are costing you <strong>thousands</strong> every month
+                </p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card reveal">
+                    <div class="problem-icon">💸</div>
+                    <h3>Making Pennies While Others Make Thousands</h3>
+                    <p>You're stuck earning $2-5 per day while watching others celebrate their $200+ daily AdSense income. The difference? They know the optimization secrets you don't.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon">🚫</div>
+                    <h3>Constant Account Rejections & Suspensions</h3>
+                    <p>Your AdSense applications keep getting denied, or worse - your account gets suspended without warning. You're missing the critical approval strategies.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon">📉</div>
+                    <h3>Traffic Without Profits</h3>
+                    <p>Thousands of visitors but pathetic earnings. You have the audience but lack the monetization blueprint to turn clicks into cash.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: var(--text-primary);">The Complete 30-Day AdSense Transformation</h2>
+                <p class="section-subtitle" style="color: var(--text-secondary);">
+                    A proven step-by-step system that transforms AdSense beginners into $3,000+/month earners
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <h3>🎯 Week 1: Foundation & Approval</h3>
+                    <p>Master AdSense fundamentals and get approved instantly - even if you've been rejected multiple times. Learn the insider approval secrets that work every time.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>🚀 Week 2: Traffic & Content Strategy</h3>
+                    <p>Discover the exact content types and SEO strategies that attract high-paying advertisers and drive premium traffic to your sites.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>💰 Week 3: Revenue Optimization</h3>
+                    <p>Advanced ad placement techniques, heat mapping strategies, and optimization methods that can triple your earnings in 24 hours.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>📈 Week 4: Scaling & Automation</h3>
+                    <p>Scale to multiple profitable sites, automate your workflow, and build a sustainable AdSense empire that generates passive income.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials with Carousel -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories That Speak Volumes</h2>
+                <p class="section-subtitle">Real transformations from real students in just 30 days</p>
+            </div>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <img src="ad1.jpg" alt="AdSense earnings screenshot showing $2,847 monthly revenue" loading="lazy">
+                            "This course completely transformed my financial situation. I went from $0 to $2,847 per month in AdSense revenue in just 8 weeks. The optimization strategies alone are worth 10x the course price."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <h4>Sarah Martinez</h4>
+                                <p>Digital Marketer • $2,847/month</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <img src="ad2.jpg" alt="AdSense dashboard showing $5,400 monthly earnings" loading="lazy">
+                            "I was making $3-5 per day before this course. Now I consistently earn $180+ daily. The step-by-step approach made everything crystal clear, even for a complete beginner like me."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <h4>Mike Rodriguez</h4>
+                                <p>Blogger • $5,400/month</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <img src="ad3.jpg" alt="Google AdSense payment screenshot for $4,200" loading="lazy">
+                            "Finally, a course that delivers on its promises! My AdSense income jumped from $200/month to $4,200/month following the exact blueprint. This changed my life."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">J</div>
+                            <div class="author-info">
+                                <h4>Jennifer Lopez</h4>
+                                <p>Content Creator • $4,200/month</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-dots">
+                    <div class="dot active" onclick="currentSlide(1)" aria-label="View testimonial 1"></div>
+                    <div class="dot" onclick="currentSlide(2)" aria-label="View testimonial 2"></div>
+                    <div class="dot" onclick="currentSlide(3)" aria-label="View testimonial 3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Reversal Section -->
+    <section class="risk-reversal">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 40px; font-weight: 800;">
+                Common Concerns? We've Got You Covered
+            </h2>
+            
+            <div class="objection-grid">
+                <div class="objection-card">
+                    <h3>"What if I'm a complete beginner?"</h3>
+                    <div class="objection-answer">PERFECT!</div>
+                    <p>This course is designed for beginners. We start from absolute zero and take you step-by-step to advanced strategies. No experience required.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <h3>"What if I don't have a website?"</h3>
+                    <div class="objection-answer">NO PROBLEM!</div>
+                    <p>We show you exactly how to create profitable websites from scratch, including templates and done-for-you content strategies.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <h3>"What if AdSense rejects me again?"</h3>
+                    <div class="objection-answer">WE GUARANTEE APPROVAL!</div>
+                    <p>Our proven approval system has a 98.2% success rate. Follow our blueprint and get approved, or we'll personally help you until you do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2 class="countdown-title">⚡ FLASH SALE EXPIRES IN:</h2>
+            <p class="countdown-subtitle">Don't miss your chance to save $70 - Price increases automatically!</p>
+            
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">01</span>
+                    <span class="countdown-label">Days</span>
+                    <div class="countdown-progress" id="days-progress" style="width: 50%;"></div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">23</span>
+                    <span class="countdown-label">Hours</span>
+                    <div class="countdown-progress" id="hours-progress" style="width: 75%;"></div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">45</span>
+                    <span class="countdown-label">Minutes</span>
+                    <div class="countdown-progress" id="minutes-progress" style="width: 25%;"></div>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">32</span>
+                    <span class="countdown-label">Seconds</span>
+                    <div class="countdown-progress" id="seconds-progress" style="width: 60%;"></div>
+                </div>
+            </div>
+            
+            <div class="countdown-warning" id="countdownWarning">
+                <p style="font-size: 1.1rem; margin: 0; font-weight: 600;">
+                    🔒 Your price is locked in once you purchase - no future price increases
+                </p>
+            </div>
+            
+            <div class="countdown-benefits">
+                <div class="countdown-benefit">
+                    <span class="countdown-benefit-icon">💰</span>
+                    <span>Save $70 (72% OFF)</span>
+                </div>
+                <div class="countdown-benefit">
+                    <span class="countdown-benefit-icon">🚀</span>
+                    <span>Instant Access</span>
+                </div>
+                <div class="countdown-benefit">
+                    <span class="countdown-benefit-icon">🛡️</span>
+                    <span>60-Day Guarantee</span>
+                </div>
+                <div class="countdown-benefit">
+                    <span class="countdown-benefit-icon">🔥</span>
+                    <span>Limited Time Only</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="pricing-container">
+                <div class="price-tag">LIMITED TIME OFFER</div>
+                
+                <h2 style="font-size: 2.5rem; margin-bottom: 40px; color: var(--text-primary); font-weight: 800;">
+                    Transform Your AdSense Income Today
+                </h2>
+                
+                <div class="pricing-card">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;">
+                        Complete AdSense Mastery System
+                    </h3>
+                    
+                    <div class="price-display">
+                        <div class="original-price">Regular Price: $97</div>
+                        <div class="current-price">$27</div>
+                        <div class="savings-badge">Save $70 (72% OFF)</div>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li><span class="check">✓</span>30-day step-by-step video course</li>
+                        <li><span class="check">✓</span>AdSense approval templates & checklists</li>
+                        <li><span class="check">✓</span>High-paying niche research tools</li>
+                        <li><span class="check">✓</span>Revenue optimization calculator</li>
+                        <li><span class="check">✓</span>Private community access</li>
+                        <li><span class="check">✓</span>Live Q&A sessions with experts</li>
+                        <li><span class="check">✓</span>Lifetime updates included</li>
+                        <li><span class="check">✓</span>60-day money-back guarantee</li>
+                    </ul>
+                    
+                    <a href="https://sellpass.co/p/5792_1756863116" class="cta-button" style="width: 100%; justify-content: center; margin-top: 20px;" target="_blank">
+                        ENROLL NOW - SAVE $70
+                    </a>
+                    
+                    <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                        Secure checkout • Instant access • 60-day guarantee
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="bonus-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Exclusive Bonuses Worth $7,397+</h2>
+                <p class="section-subtitle">
+                    Get these incredible bonuses when you enroll today - worth more than 300x the course price
+                </p>
+            </div>
+            
+            <div class="bonus-grid">
+                <div class="bonus-item">
+                    <div class="bonus-value">Worth: $1,000</div>
+                    <h3>✅ ADSENSE ARBITRAGE MASTERCLASS</h3>
+                    <p>Master Google AdSense & Facebook traffic arbitrage strategies to scale your earnings exponentially. Learn advanced techniques for profitable paid traffic campaigns.</p>
+                </div>
+                
+                <div class="bonus-item">
+                    <div class="bonus-value">Worth: $900</div>
+                    <h3>✅🌟 The YouTube Business Blueprint of Magnates Media</h3>
+                    <p>Complete system for building a profitable YouTube channel that generates massive AdSense revenue. Proven strategies from one of the most successful YouTube channels.</p>
+                </div>
+                
+                <div class="bonus-item">
+                    <div class="bonus-value">Worth: $1,400</div>
+                    <h3>✅ The Complete Web Developer Bootcamp - Beginner to Expert</h3>
+                    <p>Learn to build high-converting websites from scratch that maximize ad revenue and user engagement. Complete web development training from zero to hero.</p>
+                </div>
+                
+                <div class="bonus-item">
+                    <div class="bonus-value">Worth: $2,497</div>
+                    <h3>✅🔥 ZARAK – COLD TRAFFIC COPYWRITING COURSE</h3>
+                    <p>Master the psychology of copywriting that converts cold traffic into engaged visitors and AdSense clicks. Premium copywriting training worth thousands.</p>
+                </div>
+                
+                <div class="bonus-item">
+                    <div class="bonus-value">Worth: $1,500</div>
+                    <h3>✅📌 FABIAN MARKL – AI AUTOMATIONS & AGENT TEMPLATES</h3>
+                    <p>Cutting-edge AI tools and templates to automate your AdSense business and scale efficiently. Revolutionary AI automation strategies for maximum productivity.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <h3 style="font-size: 2rem; margin-bottom: 20px;">
+                    Total Bonus Value: <span style="color: #ffd700;">$7,297</span>
+                </h3>
+                <p style="font-size: 1.3rem; opacity: 0.9;">
+                    You get everything for just $27 (normally $7,394 total value)
+                </p>
+                <p style="font-size: 1.1rem; opacity: 0.8; margin-top: 16px;">
+                    That's a savings of <strong style="color: #ffd700;">$7,367</strong> - over 99% off!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-badge">60-Day Money-Back Guarantee</div>
+            <h2>
+                Your Success is 100% Guaranteed
+            </h2>
+            <p>
+                If you don't see a significant increase in your AdSense earnings within 60 days of implementing our strategies, we'll refund every single penny. No questions asked, no hoops to jump through.
+            </p>
+            <p>
+                We're so confident this system will transform your AdSense income that we're willing to take all the risk.
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="content-section" style="text-align: center; background: #f8fafc; padding: var(--section-padding) 0;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px; color: var(--text-primary); font-weight: 800;">
+                Don't Let Another Day Pass Without Taking Action
+            </h2>
+            <p style="font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Every day you wait is another day of lost AdSense revenue. Join the 2,847+ students who've already transformed their income with our proven system.
+            </p>
+            
+            <a href="https://sellpass.co/p/5792_1756863116" class="cta-button" style="font-size: 1.4rem; padding: 24px 60px;" target="_blank">
+                GET INSTANT ACCESS - $27 (Save $70)
+            </a>
+            
+            <p style="margin-top: 30px; color: var(--text-secondary);">
+                ⏰ Flash sale expires soon • ✅ Instant access • 🔒 60-day guarantee
+            </p>
+        </div>
+    </section>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <a href="https://sellpass.co/p/5792_1756863116" class="cta-button" target="_blank">
+            Get Course - $27
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Ready to Transform Your AdSense Income?</h3>
+                <p>
+                    Join thousands of successful students who've mastered Google AdSense with our proven system.
+                </p>
+                <a href="https://sellpass.co/p/5792_1756863116" class="cta-button" target="_blank">
+                    Start Your Transformation Today
+                </a>
+                <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #333;">
+                    <div class="footer-links">
+                        <a href="#privacy" onclick="showPrivacyPolicy()">Privacy Policy</a>
+                        <a href="#terms" onclick="showTermsConditions()">Terms & Conditions</a>
+                        <a href="mailto:emmanuelgbajavi@gmail.com">Contact</a>
+                    </div>
+                    <p style="opacity: 0.6; font-size: 0.9rem; margin: 20px 0 0;">
+                        © 2024 AdSense Mastery. All rights reserved. | 60-Day Money-Back Guarantee
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Privacy Policy</h2>
+                <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Close privacy policy">&times;</button>
+            </div>
+            <div class="modal-content">
+                <p><strong>Last Updated:</strong> December 2024</p>
+                
+                <h3>1. Information We Collect</h3>
+                <p>We collect information you provide directly to us, such as when you:</p>
+                <ul>
+                    <li>Subscribe to our email list</li>
+                    <li>Purchase our products or services</li>
+                    <li>Contact us for support</li>
+                    <li>Participate in surveys or promotions</li>
+                </ul>
+                
+                <h3>2. How We Use Your Information</h3>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide, maintain, and improve our services</li>
+                    <li>Process transactions and send related information</li>
+                    <li>Send you technical notices and support messages</li>
+                    <li>Communicate with you about products, services, and promotional offers</li>
+                    <li>Monitor and analyze trends and usage</li>
+                </ul>
+                
+                <h3>3. Information Sharing</h3>
+                <p>We do not sell, trade, or otherwise transfer your personal information to third parties except:</p>
+                <ul>
+                    <li>With your explicit consent</li>
+                    <li>To trusted service providers who assist us in operating our website</li>
+                    <li>When required by law or to protect our rights</li>
+                </ul>
+                
+                <h3>4. Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                
+                <h3>5. Cookies and Tracking</h3>
+                <p>We use cookies and similar tracking technologies to enhance your experience on our website. This includes:</p>
+                <ul>
+                    <li>Essential cookies for website functionality</li>
+                    <li>Analytics cookies to understand how you use our site</li>
+                    <li>Marketing cookies for personalized advertising (Facebook Pixel)</li>
+                </ul>
+                
+                <h3>6. Email Communications</h3>
+                <p>By subscribing to our email list, you consent to receive:</p>
+                <ul>
+                    <li>Educational content about AdSense and digital marketing</li>
+                    <li>Product updates and announcements</li>
+                    <li>Promotional offers and discounts</li>
+                </ul>
+                <p>You can unsubscribe at any time using the link in any email.</p>
+                
+                <h3>7. Third-Party Services</h3>
+                <p>Our website integrates with third-party services including:</p>
+                <ul>
+                    <li>Kit.com (ConvertKit) for email marketing</li>
+                    <li>Facebook Pixel for advertising</li>
+                    <li>SellPass for payment processing</li>
+                </ul>
+                <p>Each service has its own privacy policy governing the use of your information.</p>
+                
+                <h3>8. Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access the personal information we hold about you</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Request deletion of your personal information</li>
+                    <li>Opt-out of marketing communications</li>
+                </ul>
+                
+                <h3>9. Children's Privacy</h3>
+                <p>Our services are not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+                
+                <h3>10. Contact Us</h3>
+                <p>If you have questions about this Privacy Policy, please contact us at: <a href="mailto:emmanuelgbajavi@gmail.com">emmanuelgbajavi@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Terms & Conditions</h2>
+                <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Close terms and conditions">&times;</button>
+            </div>
+            <div class="modal-content">
+                <p><strong>Last Updated:</strong> December 2024</p>
+                
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing and using this website and purchasing our products, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h3>2. Products and Services</h3>
+                <p>We provide educational materials and courses related to Google AdSense and digital marketing. All content is for educational purposes only.</p>
+                
+                <h3>3. No Guarantees of Results</h3>
+                <p>While we share strategies that have worked for us and our students, we cannot guarantee specific results. Your success depends on many factors including:</p>
+                <ul>
+                    <li>Your effort and dedication</li>
+                    <li>Market conditions</li>
+                    <li>Your specific circumstances</li>
+                    <li>Changes to advertising platforms</li>
+                </ul>
+                
+                <h3>4. Refund Policy</h3>
+                <p>We offer a 60-day money-back guarantee. To request a refund:</p>
+                <ul>
+                    <li>Contact us within 60 days of purchase</li>
+                    <li>Provide proof that you've implemented the strategies</li>
+                    <li>Show documentation of your efforts</li>
+                </ul>
+                <p>Refunds will be processed within 7-10 business days after approval.</p>
+                
+                <h3>5. Intellectual Property</h3>
+                <p>All content, materials, and courses are protected by copyright and other intellectual property laws. You may not:</p>
+                <ul>
+                    <li>Reproduce or distribute our content without permission</li>
+                    <li>Share login credentials with others</li>
+                    <li>Resell or redistribute our materials</li>
+                </ul>
+                
+                <h3>6. User Conduct</h3>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use our services for any illegal purpose</li>
+                    <li>Violate any applicable laws or regulations</li>
+                    <li>Infringe on the rights of others</li>
+                    <li>Transmit viruses or harmful code</li>
+                </ul>
+                
+                <h3>7. Disclaimers</h3>
+                <p>Our educational materials are provided "as is" without warranties of any kind. We disclaim all warranties, express or implied, including merchantability and fitness for a particular purpose.</p>
+                
+                <h3>8. Limitation of Liability</h3>
+                <p>In no event shall AdSense Mastery be liable for any indirect, incidental, special, or consequential damages arising from your use of our products or services.</p>
+                
+                <h3>9. AdSense Compliance</h3>
+                <p>You are responsible for complying with Google AdSense policies and all applicable laws. We are not responsible if your AdSense account is suspended or terminated.</p>
+                
+                <h3>10. Changes to Terms</h3>
+                <p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on this website.</p>
+                
+                <h3>11. Affiliate Disclosure</h3>
+                <p>This website may contain affiliate links. We may earn a commission if you purchase products through these links, at no additional cost to you.</p>
+                
+                <h3>12. Governing Law</h3>
+                <p>These terms are governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
+                
+                <h3>13. Contact Information</h3>
+                <p>For questions about these terms, contact us at: <a href="mailto:emmanuelgbajavi@gmail.com">emmanuelgbajavi@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Popup functionality
+        let popupShown = false;
+        const popupOverlay = document.getElementById('popupOverlay');
+
+        function showPopup() {
+            if (!popupShown && !localStorage.getItem('popup_shown_today')) {
+                popupOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                popupShown = true;
+                
+                // Set flag to prevent showing again today
+                const today = new Date().toDateString();
+                localStorage.setItem('popup_shown_today', today);
+                localStorage.setItem('popup_last_shown', today);
+            }
+        }
+
+        function closePopup() {
+            popupOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Show popup on exit intent (desktop)
+        let exitIntentShown = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !exitIntentShown && !popupShown) {
+                showPopup();
+                exitIntentShown = true;
+            }
+        });
+
+        // Show popup after scrolling 30% on mobile
+        let scrollTriggered = false;
+        window.addEventListener('scroll', function() {
+            if (!scrollTriggered && !popupShown) {
+                const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+                if (scrollPercent > 30) {
+                    setTimeout(showPopup, 1000); // Delay for better UX
+                    scrollTriggered = true;
+                }
+            }
+        });
+
+        // Show popup after 45 seconds if not triggered by other events
+        setTimeout(function() {
+            if (!popupShown) {
+                showPopup();
+            }
+        }, 45000);
+
+        // Close popup when clicking overlay
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        // Close popup on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popupShown) {
+                closePopup();
+            }
+        });
+
+        // Check if popup should be shown today (reset daily)
+        function checkPopupEligibility() {
+            const today = new Date().toDateString();
+            const lastShown = localStorage.getItem('popup_last_shown');
+            
+            if (lastShown !== today) {
+                localStorage.removeItem('popup_shown_today');
+            }
+        }
+
+        checkPopupEligibility();
+
+        // Modal functionality for Privacy Policy and Terms
+        function showPrivacyPolicy() {
+            const modal = document.getElementById('privacyModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showTermsConditions() {
+            const modal = document.getElementById('termsModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals when clicking overlay
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
+
+        // Enhanced Countdown Timer with localStorage persistence
+        function updateCountdown() {
+            // Get or set countdown end time (47 hours from first visit)
+            let countdownKey = 'adsense_countdown_end';
+            let endTime = localStorage.getItem(countdownKey);
+            
+            if (!endTime) {
+                // Set countdown to 47 hours from now for first-time visitors
+                endTime = new Date().getTime() + (47 * 60 * 60 * 1000);
+                localStorage.setItem(countdownKey, endTime);
+            } else {
+                endTime = parseInt(endTime);
+            }
+            
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+                
+                if (distance > 0) {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    // Update display with leading zeros
+                    document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+                    document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+                    document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+                    document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+                    
+                    // Add urgency styling when time is running low
+                    if (distance < 3 * 60 * 60 * 1000) { // Less than 3 hours
+                        document.getElementById("countdown").style.animation = "pulse-urgency 1s infinite";
+                        document.querySelectorAll('.countdown-number').forEach(num => {
+                            num.classList.add('urgent');
+                        });
+                    }
+                } else {
+                    // Timer expired - keep price at $27
+                    document.getElementById("countdown").innerHTML = 
+                        "<div style='text-align: center;'>" +
+                        "<h2 style='color: #ff6b6b; margin-bottom: 20px;'>⏰ Flash Sale Extended!</h2>" +
+                        "<p style='font-size: 1.2rem;'>Limited time pricing still available</p>" +
+                        "</div>";
+                    clearInterval(countdownInterval);
+                    
+                    // Keep all prices at $27 (no price increase)
+                    const priceElements = document.querySelectorAll('.current-price');
+                    priceElements.forEach(el => el.textContent = '$27');
+                    
+                    // Keep CTA buttons at $27
+                    const ctaButtons = document.querySelectorAll('.cta-button');
+                    ctaButtons.forEach(button => {
+                        const text = button.textContent;
+                        // Ensure price stays at $27
+                        if (text.includes('$97')) {
+                            button.innerHTML = text.replace('$97', '$27');
+                        }
+                    });
+                }
+            }, 1000);
+        }
+        
+        updateCountdown();
+        
+        // Testimonial Carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showTestimonial(index) {
+            const track = document.getElementById('testimonialTrack');
+            if (track) {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[index]) {
+                    dots[index].classList.add('active');
+                }
+                
+                currentTestimonial = index;
+            }
+        }
+        
+        function currentSlide(index) {
+            showTestimonial(index - 1);
+        }
+        
+        // Auto-rotate testimonials
+        if (testimonials.length > 0) {
+            setInterval(function() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }, 5000);
+        }
+        
+        // Floating CTA
+        window.addEventListener('scroll', function() {
+            const floatingCta = document.getElementById('floatingCta');
+            const pricingSection = document.getElementById('pricing');
+            
+            if (floatingCta && pricingSection) {
+                const rect = pricingSection.getBoundingClientRect();
+                
+                if (rect.bottom < 0) {
+                    floatingCta.classList.add('visible');
+                } else {
+                    floatingCta.classList.remove('visible');
+                }
+            }
+        });
+        
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Create floating particles
+        function createParticles() {
+            const particles = document.querySelector('.particles');
+            if (!particles) return;
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                particles.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Performance optimization - Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Touch gesture support for testimonial carousel
+        let startX = 0;
+        let endX = 0;
+        
+        const testimonialCarousel = document.querySelector('.testimonial-carousel');
+        if (testimonialCarousel) {
+            testimonialCarousel.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            });
+            
+            testimonialCarousel.addEventListener('touchend', e => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const threshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0) {
+                        // Swipe left - next testimonial
+                        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                    } else {
+                        // Swipe right - previous testimonial
+                        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+                    }
+                    showTestimonial(currentTestimonial);
+                }
+            }
+        }
+        
+        // Preload critical resources
+        const criticalResources = [
+            'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap',
+            'https://primeaura.kit.com/7de5e64bae/index.js'
+        ];
+        
+        criticalResources.forEach(url => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = url;
+            link.as = url.includes('.css') ? 'style' : 'script';
+            document.head.appendChild(link);
+        });
+        
+        // Error handling for external resources
+        window.addEventListener('error', function(e) {
+            console.warn('Resource loading error:', e.target.src || e.target.href);
+        });
+        
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // Close modals/popups with Escape key
+            if (e.key === 'Escape') {
+                const activeModal = document.querySelector('.modal-overlay.active, .popup-overlay.active');
+                if (activeModal) {
+                    if (activeModal.classList.contains('popup-overlay')) {
+                        closePopup();
+                    } else {
+                        closeModal(activeModal.id);
+                    }
+                }
+            }
+            
+            // Navigate testimonials with arrow keys when focused
+            if (document.activeElement && document.activeElement.classList.contains('dot')) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+                    showTestimonial(currentTestimonial);
+                    dots[currentTestimonial]?.focus();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                    showTestimonial(currentTestimonial);
+                    dots[currentTestimonial]?.focus();
+                }
+            }
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial focus for better accessibility
+            const firstInput = document.querySelector('input[type="email"]');
+            if (firstInput && window.innerWidth > 768) {
+                // Only auto-focus on desktop to avoid mobile keyboard issues
+                setTimeout(() => firstInput.focus(), 100);
+            }
+            
+            // Set aria-labels for better screen reader support
+            document.querySelectorAll('.cta-button').forEach(button => {
+                if (!button.getAttribute('aria-label')) {
+                    button.setAttribute('aria-label', 'Purchase AdSense course for $27');
+                }
+            });
+        });
+        
+        // Service worker registration for offline support (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }).catch(function(err) {
+                    console.log('ServiceWorker registration failed');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
